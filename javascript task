@@ -1,7 +1,20 @@
-
+1. Question 
 function wordsReverser(string){
 return string.split("").reverse().join("").split(" ").reverse().join(" ")  
 }
 
 console.log(wordsReverser('New string, same results.'));
+
+2. Question 
+
  
+const arr = [54,23,12,97,100]; 
+
+function arrSort(arr) { 
+	arr.sort((a,b)=>a-b); 
+	arr.reverse(); 
+	return arr; 
+} 
+
+console.log(arrSort(arr)); 
+
