@@ -28,4 +28,86 @@ public class ShuffleRand
     }
 }
 
-2. 
+2. question
+
+import java.util.HashMap;
+
+public class RomanToInt {
+
+    public static int romanToInt(String s) {
+
+        if (s == null || s.length() == 0)
+            return -1;
+
+        System.out.println("Roman Number: " + s);
+        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+        map.put('I', 1);
+        map.put('V', 5);
+        map.put('X', 10);
+        map.put('L', 50);
+        map.put('C', 100);
+        map.put('D', 500);
+        map.put('M', 1000);
+        int len = s.length(), result = map.get(s.charAt(len - 1));
+        for (int i = len - 2; i >= 0; i--) {
+            if (map.get(s.charAt(i)) >= map.get(s.charAt(i + 1)))
+                result += map.get(s.charAt(i));
+            else
+                result -= map.get(s.charAt(i));
+        }
+
+        System.out.println("Integer: " + result);
+        System.out.println("------------------------------------");
+        return result;
+    }
+
+    public static void main(String[] args) {
+        romanToInt("MIXX");
+        romanToInt("IXX");
+        romanToInt("DXLII");
+        romanToInt("MXXIII");
+    }
+}
+
+3. Question
+
+ 
+import java.util.*;
+
+public class Pangram {
+	public static void main(String[] args) {
+
+		String str = "The quick brown fox jumps over the lazy dog";
+		if (checkPangram(str))
+			System.out.println("It is a Pangram");
+		else
+			System.out.println("It is Not a Pangram");
+	}
+
+ 
+	static boolean checkPangram(String str) {
+ 
+		Set<Character> set = new HashSet<>();
+
+		for (char ch : str.toCharArray()) {
+		 
+			if (ch >= 'a' && ch <= 'z')
+				set.add(ch);
+
+			 
+			if (ch >= 'A' && ch <= 'Z') {
+			 
+				ch = Character.toLowerCase(ch);
+				set.add(ch);
+			}
+		}
+
+		 
+		return set.size() == 26;
+	}
+
+	 
+
+}
+
+
